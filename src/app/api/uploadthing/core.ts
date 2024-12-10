@@ -2,7 +2,6 @@ import { db } from "@/lib/db";
 import { createUploadthing, type FileRouter } from "uploadthing/next";
 import { z } from "zod";
 import sharp from 'sharp'
-import axios from 'axios';
 import { getFileIrl } from "@/lib/FileUrl";
 
 const f = createUploadthing();
