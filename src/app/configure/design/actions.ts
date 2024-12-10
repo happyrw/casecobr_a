@@ -18,8 +18,13 @@ export async function saveConfig({
     model,
     configId,
 }: SaveConfigArgs) {
-    await db.configuration.update({
-        where: { id: configId },
-        data: { color, finish, material, model },
-    })
+    try {
+        await db.configuration.update({
+            where: { id: configId },
+            data: { color, finish, material, model },
+        })
+    } catch (error) {
+        console.log(error)
+        throw new Error('Failed to save configuration')
+    }
 }
